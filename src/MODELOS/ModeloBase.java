@@ -3,6 +3,7 @@ package MODELOS;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.sql.*;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Properties;
 
@@ -11,6 +12,7 @@ public abstract class ModeloBase {
     protected static String URL;
     protected static String USUARIO;
     protected static String PASSWORD;
+
 
     static {
         cargarConfiguracion();
@@ -22,7 +24,7 @@ public abstract class ModeloBase {
             propiedades.load(entrada);
             URL = propiedades.getProperty("db.url");
             USUARIO = propiedades.getProperty("db.usuario");
-            PASSWORD = propiedades.getProperty("db.contraseña");
+            PASSWORD = propiedades.getProperty("db.password");
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -35,39 +37,29 @@ public abstract class ModeloBase {
 
     public boolean insertar(String sql, Object... parametros) {
 
-        sql="insert into"+getNombreTabla()+" "+sql;
-        ejecutarQuery(sql, parametros);
+        sql = "insert into " + getNombreTabla() + " " + sql;
         return ejecutarQuery(sql, parametros);
+
     }
 
     public boolean actualizar(String sql, Object... parametros) {
-        sql="UPDATE "+getNombreTabla()+" set "+sql;
+        sql = "update " + getNombreTabla() + " set " + sql;
         return ejecutarQuery(sql, parametros);
     }
 
     public boolean borrar(String sql, Object... parametros) {
         sql = "delete from " + getNombreTabla() + " where " + sql;
         return ejecutarQuery(sql, parametros);
-
     }
 
-    // Método para leer datos de la base de datos
-    protected List<Object> leer(String sql, Object... parametros) {
+    //Método que devuelve la conexion a la bbdd
+    public Connection getConnection() {
         try {
-            Connection conexion=DriverManager.getConnection(URL,USUARIO,PASSWORD);
-            PreparedStatement preparedStatement = conexion.prepareStatement(sql);
-            for (int i = 0; i < parametros.length; i++) {
-                preparedStatement.setObject(i + 1, parametros[i]);
-            }
-            ResultSet resultSet= preparedStatement.executeQuery();
-
-
+            Connection conexion = DriverManager.getConnection(URL, USUARIO, PASSWORD);
+            return conexion;
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
-
-        // Implementa la lógica para leer datos
-        return null;
     }
 
     // Método genérico para ejecutar consultas SQL
@@ -81,16 +73,19 @@ public abstract class ModeloBase {
             }
 
             // Ejecutar la consulta
-           if (preparedStatement.executeUpdate()>0){
-               return true;
-            }else{
-               return false;
+            if (preparedStatement.executeUpdate() > 0) {
+                return true;
+            } else {
+                return false;
             }
 
         } catch (SQLException e) {
             e.printStackTrace();
+            return false;
         }
-
-        return false;
     }
+
+
+
+
 }

@@ -4,17 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b242210e-9a8f-42bb-aecf-456e0b6e257a" name="Changes" comment="NUEVO REPOSITORIO">
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/config.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/BASEDEDATOS/Conexion.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/CONTROLLES/TareasController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/MODELOS/ModeloBase.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/MODELOS/Rol.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/MODELOS/Task.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/MODELOS/User.java" afterDir="false" />
+    <list default="true" id="b242210e-9a8f-42bb-aecf-456e0b6e257a" name="Changes" comment="solo faltan los métodos desde TareasController lo dem´´as listo">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TareasAPP.iml" beforeDir="false" afterPath="$PROJECT_DIR$/TareasAPP.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config.properties" beforeDir="false" afterPath="$PROJECT_DIR$/config.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/CONTROLLES/TareasController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/CONTROLLES/TareasController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/MODELOS/ModeloBase.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/MODELOS/ModeloBase.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/MODELOS/Task.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/MODELOS/Task.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/MODELOS/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/MODELOS/User.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -32,9 +28,9 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "associatedIndex": 1
-}]]></component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 1
+}</component>
   <component name="ProjectId" id="2bgKiZXXXxTOd1Z86xd9dWHblKX" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="2" id="Add" />
@@ -43,24 +39,24 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Application.Main.executor": "Run",
-    "Downloaded.Files.Path.Enabled": "false",
-    "Repository.Attach.Annotations": "false",
-    "Repository.Attach.JavaDocs": "false",
-    "Repository.Attach.Sources": "false",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "git-widget-placeholder": "master",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/Alumno Tarde/IdeaProjects/TareasAPP",
-    "project.structure.last.edited": "Libraries",
-    "project.structure.proportion": "0.0",
-    "project.structure.side.proportion": "0.0"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Application.Main.executor&quot;: &quot;Run&quot;,
+    &quot;Downloaded.Files.Path.Enabled&quot;: &quot;false&quot;,
+    &quot;Repository.Attach.Annotations&quot;: &quot;false&quot;,
+    &quot;Repository.Attach.JavaDocs&quot;: &quot;false&quot;,
+    &quot;Repository.Attach.Sources&quot;: &quot;false&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/Alumno Tarde/IdeaProjects/TareasAPP&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Libraries&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\Alumno Tarde\IdeaProjects\TareasAPP" />
@@ -69,6 +65,20 @@
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="MODELOS" />
     </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Main" />
+      <module name="TareasAPP" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.Main" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -95,11 +105,30 @@
       <option name="project" value="LOCAL" />
       <updated>1706631871455</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="solo faltan los métodos desde TareasController lo dem´´as listo">
+      <option name="closed" value="true" />
+      <created>1706728717510</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1706728717510</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="NUEVO REPOSITORIO" />
-    <option name="LAST_COMMIT_MESSAGE" value="NUEVO REPOSITORIO" />
+    <MESSAGE value="solo faltan los métodos desde TareasController lo dem´´as listo" />
+    <option name="LAST_COMMIT_MESSAGE" value="solo faltan los métodos desde TareasController lo dem´´as listo" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <breakpoint enabled="true" type="java-exception">
+          <properties class="java.sql.SQLSyntaxErrorException" package="java.sql" />
+          <option name="timeStamp" value="15" />
+        </breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

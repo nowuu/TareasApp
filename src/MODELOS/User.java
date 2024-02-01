@@ -1,7 +1,10 @@
 package MODELOS;
 
+import BASEDEDATOS.Conexion;
 import MODELOS.Rol;
 
+import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
@@ -67,6 +70,10 @@ public class User extends ModeloBase{
                 '}';
     }
 
+
+
+
+
     @Override
     protected String getNombreTabla() {
         return "user";
@@ -75,5 +82,34 @@ public class User extends ModeloBase{
 
     protected Object createObjectFromResultSet(ResultSet resultSet) throws SQLException {
         return null;
+    }
+
+    public User login(String username, String password) {
+        User user=new User();
+        Connection conn=user.getConnection();
+        String sql="select iduser,username,rol.id,descripcion from " +
+                "user left join rol on user.rol=rol.id " +
+                "where username=? and password=?";
+        try {
+            PreparedStatement pst=conn.prepareStatement(sql);
+            pst.setString(1,username);
+            pst.setString(2,password);
+            ResultSet resultSet=pst.executeQuery();
+            if(resultSet.next()){
+                user.idUser=resultSet.getInt("iduser");
+                user.username=resultSet.getString("username");
+                Rol rol=new Rol();
+                rol.setIdRol(resultSet.getInt("id"));
+                rol.setDescripcion(resultSet.getString("descripcion"));
+                user.rol=rol;
+                return user;
+            }else {
+                return null;
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+
+
     }
 }

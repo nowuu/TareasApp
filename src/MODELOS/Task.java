@@ -1,9 +1,13 @@
 package MODELOS;
 
+import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 public class Task extends ModeloBase{
 
@@ -106,6 +110,54 @@ private int idTarea;
         return null;
     }
 
+    public List<Task> getAllByUser(int idUser) {
+        List<Task> taskList = new ArrayList<>();
+        Task task = new Task();
+        Connection conn = task.getConnection();
+        String sql = "SELECT idtask,title,T0.descripcion,datetime,deadline,status,\n" +
+                "T1.iduser,username,T2.id,T2.descripcion AS rol \n" +
+                "from task T0 \n" +
+                "left join user T1 on T0.iduser=T1.iduser\n" +
+                "left join rol T2 on T1.rol=T2.id where T1.iduser=?";
+        try {
+            PreparedStatement pst = conn.prepareStatement(sql);
+            pst.setInt(1, idUser);
+            ResultSet resultSet = pst.executeQuery();
+            while (resultSet.next()) {
+                task.idTarea = resultSet.getInt("idtask");
+                task.title = resultSet.getString("title");
+                task.description = resultSet.getString("descripcion");
+                task.dateTime = resultSet.getDate("datetime");
+                task.deadline = resultSet.getDate("deadline");
+                task.status = resultSet.getBoolean("status");
+                User user1 = new User();
+                user1.setIdUser(resultSet.getInt("iduser"));
+                user1.setUsername(resultSet.getString("username"));
+                Rol rol = new Rol();
+                rol.setIdRol(resultSet.getInt("id"));
+                rol.setDescripcion(resultSet.getString("descripcion"));
+                user1.setRol(rol);
+                task.setUser(user1);
+                taskList.add(task);
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+        return taskList;
+    }
+
+    @Override
+    public String toString() {
+        return "Task{" +
+                "idTarea=" + idTarea +
+                ", title='" + title + '\'' +
+                ", description='" + description + '\'' +
+                ", dateTime=" + dateTime +
+                ", deadline=" + deadline +
+                ", status=" + status +
+                ", user=" + user +
+                '}';
+    }
 }
 
 
