@@ -9,7 +9,8 @@ public class Main {
  TareasController tareasController=new TareasController();
 
     tareasController.login("jose","1234");
-        System.out.println(tareasController.getAllTaskUser());
+//    tareasController.createTask("me gusta","la fruta",LocalDate.now());
+    System.out.println(tareasController.getAllTask());
 
 
 

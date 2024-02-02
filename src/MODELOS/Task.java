@@ -1,9 +1,6 @@
 package MODELOS;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.sql.*;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.Date;
@@ -112,14 +109,16 @@ private int idTarea;
 
     public List<Task> getAllByUser(int idUser) {
         List<Task> taskList = new ArrayList<>();
-        Task task = new Task();
-        Connection conn = task.getConnection();
+        Task task1 = new Task();
+        Connection conn = task1.getConnection();
         String sql = "SELECT idtask,title,T0.descripcion,datetime,deadline,status,\n" +
                 "T1.iduser,username,T2.id,T2.descripcion AS rol \n" +
                 "from task T0 \n" +
                 "left join user T1 on T0.iduser=T1.iduser\n" +
                 "left join rol T2 on T1.rol=T2.id where T1.iduser=?";
         try {
+
+           Task task=new Task();
             PreparedStatement pst = conn.prepareStatement(sql);
             pst.setInt(1, idUser);
             ResultSet resultSet = pst.executeQuery();
@@ -157,6 +156,48 @@ private int idTarea;
                 ", status=" + status +
                 ", user=" + user +
                 '}';
+    }
+
+    public List<Task> getAll() {
+        List<Task> taskList = new ArrayList<>();
+        Task task1 = new Task();
+        Connection conn = task1.getConnection();
+        String sql = "SELECT idtask,title,T0.descripcion,datetime,deadline,status,\n" +
+                "T1.iduser,username,T2.id,T2.descripcion AS rol \n" +
+                "from task T0 \n" +
+                "left join user T1 on T0.iduser=T1.iduser\n" +
+                "left join rol T2 on T1.rol=T2.id ";
+        try {
+            Task task = new Task();
+            Statement statement= conn.createStatement();
+            ResultSet resultSet = statement.executeQuery(sql);
+            taskList=readResulSet(resultSet);
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+        return taskList;
+    }
+    private List<Task> readResulSet(ResultSet resultSet) throws SQLException {
+        List<Task> taskList = new ArrayList<>();
+        while (resultSet.next()) {
+            Task task = new Task();
+            task.idTarea = resultSet.getInt("idtask");
+            task.title = resultSet.getString("title");
+            task.description = resultSet.getString("description");
+            task.dateTime = resultSet.getDate("create_date");
+            task.deadline = resultSet.getDate("deadline");
+            task.status = resultSet.getBoolean("status");
+            User user = new User();
+            user.setIdUser(resultSet.getInt("iduser"));
+            user.setUsername(resultSet.getString("username"));
+            Rol rol = new Rol();
+            rol.setIdRol(resultSet.getInt("idrol"));
+            rol.setDescripcion(resultSet.getString("rol"));
+            user.setRol(rol);
+            task.user = user;
+            taskList.add(task);
+        }
+        return taskList;
     }
 }
 

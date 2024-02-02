@@ -117,15 +117,24 @@ public class TareasController {
         return task.insertar("(title,descripcion,deadline,iduser) values (?,?,?,?)", title, description, deadline, userLogged.getIdUser());
 
     }
+public boolean editStatusTask(int idtask){
+        Task task=new Task();
+        return task.actualizar("status=1 where idtask=?",idtask);
 
+}
+
+public boolean deleteTask(int idtask){
+        Task task=new Task();
+        return task.borrar("idtask=?",idtask);
+}
     public List<Task> getAllTaskUser() {
         Task task = new Task();
         return task.getAllByUser(userLogged.getIdUser());
     }
 
-//    public List<Task> getAllTaskUser() {
-//        Task task = new Task();
-//        return task.getAll();
-//    }
+   public List<Task> getAllTask() {
+        Task task = new Task();
+        return task.getAll();
+   }
 
 }

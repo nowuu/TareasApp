@@ -6,11 +6,8 @@
   <component name="ChangeListManager">
     <list default="true" id="b242210e-9a8f-42bb-aecf-456e0b6e257a" name="Changes" comment="solo faltan los métodos desde TareasController lo dem´´as listo">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config.properties" beforeDir="false" afterPath="$PROJECT_DIR$/config.properties" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/CONTROLLES/TareasController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/CONTROLLES/TareasController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/MODELOS/ModeloBase.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/MODELOS/ModeloBase.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/MODELOS/Task.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/MODELOS/Task.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/MODELOS/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/MODELOS/User.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -113,7 +110,15 @@
       <option name="project" value="LOCAL" />
       <updated>1706728717510</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="solo faltan los métodos desde TareasController lo dem´´as listo">
+      <option name="closed" value="true" />
+      <created>1706816245500</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1706816245501</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
